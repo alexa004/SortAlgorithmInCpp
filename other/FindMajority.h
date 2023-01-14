@@ -2,7 +2,7 @@
 #define SORTALGORITHM_FINDMAJORITY_H
 
 template<typename T>
-T findMajority(T array, int n) {
+auto findMajority(T array, int n) {
     int count = 0, index;
     for (int i = 0; i < n; i++) {
         if (count == 0) index = i, count++;

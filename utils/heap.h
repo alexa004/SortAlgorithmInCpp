@@ -3,8 +3,8 @@
 
 #include <algorithm>
 
-#define leftSon(index) (index << 1)
-#define rightSon(index) (index << 1 | 1)
+#define leftSon(index) ((index) << 1)
+#define rightSon(index) ((index) << 1 | 1)
 
 template<typename T>
 void siftDown(T array, int size, int index) {
