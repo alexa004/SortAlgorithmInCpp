@@ -3,11 +3,11 @@
 #include <cstdlib>
 #include <algorithm>
 
-#include "./utils/utlis.h"
-#include "./utils/fio.h"
-#include "./other/EulerFilter.h"
-#include "./other/FindMajority.h"
-#include "./other/CountReverse.h"
+#include "utils/fio.h"
+#include "utils/utils.h"
+#include "other/EulerFilter.h"
+#include "other/FindMajority.h"
+#include "other/CountReverse.h"
 
 void sortTest(const std::vector<int> &square, const std::vector<int> &linear, const std::vector<int> &lineLog) {
     bool flag = true;

@@ -1,5 +1,5 @@
-#ifndef SORTALGORITHM_UTLIS_H
-#define SORTALGORITHM_UTLIS_H
+#ifndef SORTALGORITHM_UTILS_H
+#define SORTALGORITHM_UTILS_H
 
 #include "../sort/RadixSort.h"
 #include "../sort/MergeSort.h"
@@ -20,6 +20,8 @@
 #include "../test/IncreaseItemGenerator.h"
 #include "../test/DecreaseItemGenerator.h"
 #include "../test/SameItemGenerator.h"
+
+#include "src/catch2/catch_test_macros.hpp"
 
 void finalizeSort(AbstractGenerator *generator, const std::string &name, int size, bool &flag) {
     bool result = generator->checkAnswer();
@@ -165,4 +167,4 @@ void maintainKthTest(const std::string &name, const std::vector<int> &size, bool
     testKth(maintainKth, SameItemGenerator, name, size, flag);
 }
 
-#endif //SORTALGORITHM_UTLIS_H
+#endif //SORTALGORITHM_UTILS_H
