@@ -3,7 +3,7 @@
 
 #include <vector>
 
-inline void eulerFilter(std::vector<int>& array) {
+void eulerFilter(std::vector<int> &array) {
     std::vector<int> prime(array.size());
     int count = 0;
     for (int i = 2; i < array.size(); i++) array[i] = 1;

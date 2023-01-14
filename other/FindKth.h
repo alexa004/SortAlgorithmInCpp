@@ -3,12 +3,16 @@
 
 #include <algorithm>
 
-template <typename T> int solve(T array, int left, int right, int k) {
+template<typename T>
+static int solve(T *array, int left, int right, int k) {
     if (left > right) return -1;
     int mid = (left + right) / 2;
-    if (array[left] > array[right]) std::swap(array[left], array[right]);
-    if (array[right] < array[mid]) std::swap(array[right], array[mid]);
-    if (array[left] < array[mid]) std::swap(array[left], array[mid]);
+    if (array[left] > array[right])
+        std::swap(array[left], array[right]);
+    if (array[right] < array[mid])
+        std::swap(array[right], array[mid]);
+    if (array[left] < array[mid])
+        std::swap(array[left], array[mid]);
     int i = left, j = right, tmp = array[left];
     while (i != j) {
         while (array[j] >= tmp && i < j) j--;
@@ -23,7 +27,8 @@ template <typename T> int solve(T array, int left, int right, int k) {
     return i + 1;
 }
 
-template <typename T> auto findKth(T array, int n, int k) {
+template<typename T>
+T findKth(T *array, int n, int k) {
     return array[solve(array, 0, n - 1, k - 1)];
 }
 

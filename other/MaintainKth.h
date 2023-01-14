@@ -3,7 +3,8 @@
 
 #include "../utils/heap.h"
 
-template <typename T> auto maintainKth(T array, int n, int k) {
+template<typename T>
+T maintainKth(T *array, int n, int k) {
     for (int i = k / 2; i > 0; i--) siftDown(array, k, i);
     for (int i = k + 1; i <= n; i++)
         if (array[i - 1] < array[0])

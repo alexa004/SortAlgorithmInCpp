@@ -7,11 +7,11 @@ class MiddleRandomGenerator : public AbstractGenerator {
 public:
     MiddleRandomGenerator(int size, bool type, bool store) : AbstractGenerator(size, type, store) {}
 
-    const char* name() override {
+    const char *name() override {
         return "middle random generator";
     }
 
-    int* generateArray() override {
+    int *generateArray() override {
         if (array != nullptr)
             for (int i = 0; i < size; i++) {
                 int value = generator();
@@ -26,7 +26,7 @@ public:
                 int value = generator();
                 answer[i] = (*vector)[i] = value / 0xffff;
             }
-        return vector -> begin();
+        return vector->begin();
     }
 };
 

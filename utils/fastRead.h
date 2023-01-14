@@ -29,7 +29,7 @@ inline void writeInt(int value) {
 
 void writeUnsignedLongLong(long long value) {
     if (value > 9) writeUnsignedLongLong(value / 10);
-    putchar((int)(value % 10) + 48);
+    putchar((int) (value % 10) + 48);
 }
 
 inline void writeLongLong(long long value) {

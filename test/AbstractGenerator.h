@@ -9,14 +9,14 @@
 
 class AbstractGenerator {
 protected:
-    int* array;
-    int* answer;
-    std::vector<int>* vector;
+    int *array;
+    int *answer;
+    std::vector<int> *vector;
     int left, right, size, index;
 
     inline void getAnswer() {
-        int* leftPtr = answer + (left == -1 ? 0 : left);
-        int* rightPtr = answer + (right == -1 ? size : right + 1);
+        int *leftPtr = answer + (left == -1 ? 0 : left);
+        int *rightPtr = answer + (right == -1 ? size : right + 1);
         std::sort(leftPtr, rightPtr);
     }
 
@@ -35,13 +35,13 @@ public:
     constexpr static bool VECTOR = true;
 
     AbstractGenerator(int size, bool type, bool store) : size(size) {
-        array = !store ? (int*)malloc(sizeof(int) * size) : nullptr;
+        array = !store ? (int *) malloc(sizeof(int) * size) : nullptr;
         vector = store ? new std::vector<int>(size) : nullptr;
-        answer = (int*)malloc(sizeof(int) * size);
+        answer = (int *) malloc(sizeof(int) * size);
         std::mt19937 generator(std::chrono::system_clock::now().time_since_epoch().count());
-        left = type ? ((int)generator() % size + size) % size : -1;
-        right = type ? ((int)generator() % size + size) % size : -1;
-        index = ((int)generator() % size + size) % size;
+        left = type ? ((int) generator() % size + size) % size : -1;
+        right = type ? ((int) generator() % size + size) % size : -1;
+        index = ((int) generator() % size + size) % size;
         if (left > right) std::swap(left, right);
     }
 
@@ -49,7 +49,7 @@ public:
         free(answer);
         if (array != nullptr) free(array);
         if (vector != nullptr) {
-            vector -> clear();
+            vector->clear();
             delete vector;
         }
     }
@@ -100,9 +100,9 @@ public:
         return generator();
     }
 
-    virtual const char* name() = 0;
+    virtual const char *name() = 0;
 
-    virtual int* generateArray() = 0;
+    virtual int *generateArray() = 0;
 
     virtual std::vector<int>::iterator generateVector() = 0;
 };
