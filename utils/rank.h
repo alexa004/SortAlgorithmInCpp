@@ -50,12 +50,12 @@ static void testAndVerify(std::vector<RankTesterItem> &testList, std::vector<int
     }
 }
 
-TEST_CASE("FindKth", "Mix") {
+TEST_CASE("FindKth") {
     std::vector<RankTesterItem> testList = RankTester(findKth);
     testAndVerify(testList, LINEAR_SIZE);
 }
 
-TEST_CASE("MaintainKth", "Mix") {
+TEST_CASE("MaintainKth") {
     std::vector<RankTesterItem> testList = RankTester(maintainKth);
     testAndVerify(testList, LINE_LOG_SIZE);
 }

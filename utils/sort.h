@@ -63,42 +63,42 @@ static void testAndVerify(std::vector<SortTesterItem> &testList, std::vector<int
     }
 }
 
-TEST_CASE("RadixSort", "Mix") {
+TEST_CASE("RadixSort") {
     std::vector<SortTesterItem> testList = SortTester(radixSort);
     testAndVerify(testList, LINEAR_SIZE);
 }
 
-TEST_CASE("MergeSort", "Mix") {
+TEST_CASE("MergeSort") {
     std::vector<SortTesterItem> testList = SortTester(mergeSort);
     testAndVerify(testList, LINE_LOG_SIZE);
 }
 
-TEST_CASE("HeapSort", "Mix") {
+TEST_CASE("HeapSort") {
     std::vector<SortTesterItem> testList = SortTester(heapSort);
     testAndVerify(testList, LINE_LOG_SIZE);
 }
 
-TEST_CASE("QuickSort", "Mix") {
+TEST_CASE("QuickSort") {
     std::vector<SortTesterItem> testList = SortTester(quickSort);
     testAndVerify(testList, LINE_LOG_SIZE);
 }
 
-TEST_CASE("ShellSort", "Mix") {
+TEST_CASE("ShellSort") {
     std::vector<SortTesterItem> testList = SortTester(shellSort);
     testAndVerify(testList, LINE_LOG_SIZE);
 }
 
-TEST_CASE("InsertSort", "Mix") {
+TEST_CASE("InsertSort") {
     std::vector<SortTesterItem> testList = SortTester(insertSort);
     testAndVerify(testList, SQUARE_SIZE);
 }
 
-TEST_CASE("SelectSort", "Mix") {
+TEST_CASE("SelectSort") {
     std::vector<SortTesterItem> testList = SortTester(selectSort);
     testAndVerify(testList, SQUARE_SIZE);
 }
 
-TEST_CASE("BubbleSort", "Mix") {
+TEST_CASE("BubbleSort") {
     std::vector<SortTesterItem> testList = SortTester(bubbleSort);
     testAndVerify(testList, SQUARE_SIZE);
 }

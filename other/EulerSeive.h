@@ -1,9 +1,9 @@
-#ifndef SORTALGORITHM_EULERFILTER_H
-#define SORTALGORITHM_EULERFILTER_H
+#ifndef SORTALGORITHM_EULERSEIVE_H
+#define SORTALGORITHM_EULERSEIVE_H
 
 #include <vector>
 
-void eulerFilter(std::vector<bool> &array) {
+void eulerSeive(std::vector<bool> &array) {
     std::vector<int> prime(array.size());
     int count = 0;
     for (int i = 2; i < array.size(); i++) array[i] = true;
@@ -16,4 +16,4 @@ void eulerFilter(std::vector<bool> &array) {
     }
 }
 
-#endif //SORTALGORITHM_EULERFILTER_H
+#endif //SORTALGORITHM_EULERSEIVE_H

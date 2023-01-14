@@ -7,7 +7,7 @@
 
 #include "consts.h"
 
-#include "../other/EulerFilter.h"
+#include "../other/EulerSeive.h"
 #include "../other/FindMajority.h"
 #include "../other/ReverseBrute.h"
 #include "../other/ReverseMerge.h"
@@ -20,7 +20,7 @@
 #include "../test/DecreaseItemGenerator.h"
 #include "../test/SameItemGenerator.h"
 
-TEST_CASE("ReverseMatch", "Mix") {
+TEST_CASE("ReverseMatch") {
     typedef std::pair<std::pair<bool, bool>, std::function<bool(AbstractGenerator *)>> TesterItem;
     std::vector<TesterItem> testList = {
             {ALL_ARRAY,  [](AbstractGenerator *generator) {
@@ -58,7 +58,7 @@ TEST_CASE("ReverseMatch", "Mix") {
     }
 }
 
-TEST_CASE("ReversePerformance", "Mix") {
+TEST_CASE("ReversePerformance") {
     typedef std::pair<std::pair<bool, bool>, std::function<void(AbstractGenerator *)>> TesterItem;
     std::vector<TesterItem> testList = {
             {ALL_ARRAY,  [](AbstractGenerator *generator) {
@@ -87,7 +87,7 @@ TEST_CASE("ReversePerformance", "Mix") {
     }
 }
 
-TEST_CASE("Majority", "Mix") {
+TEST_CASE("Majority") {
     for (int size: LINE_LOG_SIZE) {
         for (int count = 0; count < 4; count++) {
             int bound = (size >> 1) + 1, distance = size - bound + 1;
@@ -109,9 +109,9 @@ TEST_CASE("Majority", "Mix") {
     }
 }
 
-TEST_CASE("EulerFilter", "Mix") {
+TEST_CASE("EulerSeiveMatch") {
     for (int size: LINE_LOG_SIZE) {
-        for (int count = 0; count < 3; count++) {
+        for (int count = 0; count < 4; count++) {
             std::vector<bool> answer(size, false);
             for (int i = 2; i < size; i++) {
                 bool flag = true;
@@ -120,9 +120,17 @@ TEST_CASE("EulerFilter", "Mix") {
                 answer[i] = flag;
             }
             std::vector<bool> result(size);
-            eulerFilter(result);
+            eulerSeive(result);
             CHECK(answer == result);
         }
+    }
+}
+
+TEST_CASE("EulerSeivePerformance") {
+    for (int size: LINEAR_SIZE) {
+        std::vector<bool> result(size);
+        eulerSeive(result);
+        CHECK(true);
     }
 }
 
