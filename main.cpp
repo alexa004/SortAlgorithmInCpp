@@ -5,7 +5,7 @@
 #include <algorithm>
 
 #include "./utils/utlis.h"
-#include "./utils/fastRead.h"
+#include "./utils/fio.h"
 #include "./other/EulerFilter.h"
 #include "./other/FindMajority.h"
 #include "./other/CountReverse.h"
@@ -43,40 +43,40 @@ inline void kthTest(const std::vector<int>& square
 }
 
 inline void eulerTest() {
-    std::vector<int> filter(readInt());
+    std::vector<int> filter(read());
     eulerFilter(filter);
     for (int i = 0; i < filter.size(); i++)
         if (filter[i]) writeInt(i);
 }
 
 inline void reverseTestA() {
-    int total = readInt();
+    int total = read();
     int* array = (int*)malloc(sizeof(int) * total);
-    for (int i = 0; i < total; i++) array[i] = readInt();
+    for (int i = 0; i < total; i++) array[i] = read();
     writeLongLong(countReverse(array, total));
 }
 
 inline void reverseTestB() {
-    std::vector<int> array(readInt());
-    for (int& i : array) i = readInt();
+    std::vector<int> array(read());
+    for (int& i : array) i = read();
     writeLongLong(countReverse(array.begin(), array.size()));
 }
 
 inline void majorityTestA() {
-    int total = readInt();
+    int total = read();
     int* array = (int*)malloc(sizeof(int) * total);
     int* answer = (int*)malloc(sizeof(int) * total);
-    for (int i = 0; i < total; i++) array[i] = answer[i] = readInt();
+    for (int i = 0; i < total; i++) array[i] = answer[i] = read();
     std::sort(answer, answer + total);
     puts(answer[total / 2] == findMajority(array, total) ? "true" : "false");
     free(array), free(answer);
 }
 
 inline void majorityTestB() {
-    int total = readInt();
+    int total = read();
     std::vector<int> array(total);
     std::vector<int> answer(total);
-    for (int i = 0; i < total; i++) array[i] = answer[i] = readInt();
+    for (int i = 0; i < total; i++) array[i] = answer[i] = read();
     std::sort(answer.begin(), answer.end());
     puts(answer[total / 2] == findMajority(array, total) ? "true" : "false");
 }

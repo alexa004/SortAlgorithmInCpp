@@ -9,7 +9,7 @@ add_executable(
         main.cpp
         utils/utlis.h
         utils/heap.h
-        utils/fastRead.h
+        utils/fio.h
 
         test/AbstractGenerator.h
         test/LargeRandomGenerator.h
