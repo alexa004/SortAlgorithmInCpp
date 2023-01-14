@@ -17,9 +17,9 @@
 #include "../test/LargeRandomGenerator.h"
 #include "../test/MiddleRandomGenerator.h"
 #include "../test/SmallRandomGenerator.h"
-#include "../test/IncreaseIntGenerator.h"
-#include "../test/DecreaseIntGenerator.h"
-#include "../test/SameIntGenerator.h"
+#include "../test/IncreaseItemGenerator.h"
+#include "../test/DecreaseItemGenerator.h"
+#include "../test/SameItemGenerator.h"
 
 inline void finalizeSort(AbstractGenerator* generator, const std::string& name, int size, bool& flag) {
     bool result = generator -> checkAnswer();
@@ -79,90 +79,90 @@ inline void bubbleSortTest(const std::string& name, const std::vector<int>& size
     testSort(bubbleSort, LargeRandomGenerator, name, size, flag);
     testSort(bubbleSort, MiddleRandomGenerator, name, size, flag);
     testSort(bubbleSort, SmallRandomGenerator, name, size, flag);
-    testSort(bubbleSort, IncreaseIntGenerator, name, size, flag);
-    testSort(bubbleSort, DecreaseIntGenerator, name, size, flag);
-    testSort(bubbleSort, SameIntGenerator, name, size, flag);
+    testSort(bubbleSort, IncreaseItemGenerator, name, size, flag);
+    testSort(bubbleSort, DecreaseItemGenerator, name, size, flag);
+    testSort(bubbleSort, SameItemGenerator, name, size, flag);
 }
 
 inline void selectSortTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testSort(selectSort, LargeRandomGenerator, name, size, flag);
     testSort(selectSort, MiddleRandomGenerator, name, size, flag);
     testSort(selectSort, SmallRandomGenerator, name, size, flag);
-    testSort(selectSort, IncreaseIntGenerator, name, size, flag);
-    testSort(selectSort, DecreaseIntGenerator, name, size, flag);
-    testSort(selectSort, SameIntGenerator, name, size, flag);
+    testSort(selectSort, IncreaseItemGenerator, name, size, flag);
+    testSort(selectSort, DecreaseItemGenerator, name, size, flag);
+    testSort(selectSort, SameItemGenerator, name, size, flag);
 }
 
 inline void insertSortTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testSort(insertSort, LargeRandomGenerator, name, size, flag);
     testSort(insertSort, MiddleRandomGenerator, name, size, flag);
     testSort(insertSort, SmallRandomGenerator, name, size, flag);
-    testSort(insertSort, IncreaseIntGenerator, name, size, flag);
-    testSort(insertSort, DecreaseIntGenerator, name, size, flag);
-    testSort(insertSort, SameIntGenerator, name, size, flag);
+    testSort(insertSort, IncreaseItemGenerator, name, size, flag);
+    testSort(insertSort, DecreaseItemGenerator, name, size, flag);
+    testSort(insertSort, SameItemGenerator, name, size, flag);
 }
 
 inline void shellSortTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testSort(shellSort, LargeRandomGenerator, name, size, flag);
     testSort(shellSort, MiddleRandomGenerator, name, size, flag);
     testSort(shellSort, SmallRandomGenerator, name, size, flag);
-    testSort(shellSort, IncreaseIntGenerator, name, size, flag);
-    testSort(shellSort, DecreaseIntGenerator, name, size, flag);
-    testSort(shellSort, SameIntGenerator, name, size, flag);
+    testSort(shellSort, IncreaseItemGenerator, name, size, flag);
+    testSort(shellSort, DecreaseItemGenerator, name, size, flag);
+    testSort(shellSort, SameItemGenerator, name, size, flag);
 }
 
 inline void quickSortTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testSort(quickSort, LargeRandomGenerator, name, size, flag);
     testSort(quickSort, MiddleRandomGenerator, name, size, flag);
     testSort(quickSort, SmallRandomGenerator, name, size, flag);
-    testSort(quickSort, IncreaseIntGenerator, name, size, flag);
-    testSort(quickSort, DecreaseIntGenerator, name, size, flag);
-    testSort(quickSort, SameIntGenerator, name, size, flag);
+    testSort(quickSort, IncreaseItemGenerator, name, size, flag);
+    testSort(quickSort, DecreaseItemGenerator, name, size, flag);
+    testSort(quickSort, SameItemGenerator, name, size, flag);
 }
 
 inline void heapSortTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testSort(heapSort, LargeRandomGenerator, name, size, flag);
     testSort(heapSort, MiddleRandomGenerator, name, size, flag);
     testSort(heapSort, SmallRandomGenerator, name, size, flag);
-    testSort(heapSort, IncreaseIntGenerator, name, size, flag);
-    testSort(heapSort, DecreaseIntGenerator, name, size, flag);
-    testSort(heapSort, SameIntGenerator, name, size, flag);
+    testSort(heapSort, IncreaseItemGenerator, name, size, flag);
+    testSort(heapSort, DecreaseItemGenerator, name, size, flag);
+    testSort(heapSort, SameItemGenerator, name, size, flag);
 }
 
 inline void mergeSortTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testSort(mergeSort, LargeRandomGenerator, name, size, flag);
     testSort(mergeSort, MiddleRandomGenerator, name, size, flag);
     testSort(mergeSort, SmallRandomGenerator, name, size, flag);
-    testSort(mergeSort, IncreaseIntGenerator, name, size, flag);
-    testSort(mergeSort, DecreaseIntGenerator, name, size, flag);
-    testSort(mergeSort, SameIntGenerator, name, size, flag);
+    testSort(mergeSort, IncreaseItemGenerator, name, size, flag);
+    testSort(mergeSort, DecreaseItemGenerator, name, size, flag);
+    testSort(mergeSort, SameItemGenerator, name, size, flag);
 }
 
 inline void radixSortTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testSort(radixSort, LargeRandomGenerator, name, size, flag);
     testSort(radixSort, MiddleRandomGenerator, name, size, flag);
     testSort(radixSort, SmallRandomGenerator, name, size, flag);
-    testSort(radixSort, IncreaseIntGenerator, name, size, flag);
-    testSort(radixSort, DecreaseIntGenerator, name, size, flag);
-    testSort(radixSort, SameIntGenerator, name, size, flag);
+    testSort(radixSort, IncreaseItemGenerator, name, size, flag);
+    testSort(radixSort, DecreaseItemGenerator, name, size, flag);
+    testSort(radixSort, SameItemGenerator, name, size, flag);
 }
 
 inline void findKthTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testKth(findKth, LargeRandomGenerator, name, size, flag);
     testKth(findKth, MiddleRandomGenerator, name, size, flag);
     testKth(findKth, SmallRandomGenerator, name, size, flag);
-    testKth(findKth, IncreaseIntGenerator, name, size, flag);
-    testKth(findKth, DecreaseIntGenerator, name, size, flag);
-    testKth(findKth, SameIntGenerator, name, size, flag);
+    testKth(findKth, IncreaseItemGenerator, name, size, flag);
+    testKth(findKth, DecreaseItemGenerator, name, size, flag);
+    testKth(findKth, SameItemGenerator, name, size, flag);
 }
 
 inline void maintainKthTest(const std::string& name, const std::vector<int>& size, bool& flag) {
     testKth(maintainKth, LargeRandomGenerator, name, size, flag);
     testKth(maintainKth, MiddleRandomGenerator, name, size, flag);
     testKth(maintainKth, SmallRandomGenerator, name, size, flag);
-    testKth(maintainKth, IncreaseIntGenerator, name, size, flag);
-    testKth(maintainKth, DecreaseIntGenerator, name, size, flag);
-    testKth(maintainKth, SameIntGenerator, name, size, flag);
+    testKth(maintainKth, IncreaseItemGenerator, name, size, flag);
+    testKth(maintainKth, DecreaseItemGenerator, name, size, flag);
+    testKth(maintainKth, SameItemGenerator, name, size, flag);
 }
 
 #endif //SORTALGORITHM_UTLIS_H

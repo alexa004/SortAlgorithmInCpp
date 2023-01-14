@@ -1,20 +1,19 @@
-#ifndef SORTALGORITHM_INCREASEINTGENERATOR_H
-#define SORTALGORITHM_INCREASEINTGENERATOR_H
+#ifndef SORTALGORITHM_INCREASEITEMGENERATOR_H
+#define SORTALGORITHM_INCREASEITEMGENERATOR_H
 
 #include "AbstractGenerator.h"
 
-class IncreaseIntGenerator : public AbstractGenerator {
+class IncreaseItemGenerator : public AbstractGenerator {
 private:
     int base;
 
 public:
-    IncreaseIntGenerator(int size, bool type, bool store) : AbstractGenerator(size, type, store) {
-        int value = (int) generator() / 2;
-        this->base = value;
+    IncreaseItemGenerator(int size, bool type, bool store) : AbstractGenerator(size, type, store) {
+        this->base = (int) generator() / 2;
     }
 
     const char *name() override {
-        return "increase int generator";
+        return "increase item generator";
     }
 
     int *generateArray() override {
@@ -27,9 +26,9 @@ public:
     std::vector<int>::iterator generateVector() override {
         if (vector != nullptr)
             for (int i = 0; i < size; i++)
-                answer[i] = (*vector)[i] = base + i;
+                answer[i] = vector->at(i) = base + i;
         return vector->begin();
     }
 };
 
-#endif //SORTALGORITHM_INCREASEINTGENERATOR_H
+#endif //SORTALGORITHM_INCREASEITEMGENERATOR_H

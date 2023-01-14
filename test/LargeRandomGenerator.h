@@ -21,7 +21,7 @@ public:
     std::vector<int>::iterator generateVector() override {
         if (vector != nullptr)
             for (int i = 0; i < size; i++)
-                answer[i] = (*vector)[i] = generator();
+                answer[i] = vector->at(i) = generator();
         return vector->begin();
     }
 };

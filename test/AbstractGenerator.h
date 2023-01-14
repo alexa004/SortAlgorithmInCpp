@@ -7,6 +7,11 @@
 #include <cstdlib>
 #include <algorithm>
 
+static int generator() {
+    static std::mt19937 generator(std::chrono::system_clock::now().time_since_epoch().count());
+    return (int) generator();
+}
+
 class AbstractGenerator {
 protected:
     int *array;
@@ -14,7 +19,7 @@ protected:
     std::vector<int> *vector;
     int left, right, size, index;
 
-    inline void getAnswer() {
+    void getAnswer() {
         int *leftPtr = answer + (left == -1 ? 0 : left);
         int *rightPtr = answer + (right == -1 ? size : right + 1);
         std::sort(leftPtr, rightPtr);
@@ -35,56 +40,57 @@ public:
     constexpr static bool VECTOR = true;
 
     AbstractGenerator(int size, bool type, bool store) : size(size) {
-        array = !store ? (int *) malloc(sizeof(int) * size) : nullptr;
+        array = !store ? new int[size] : nullptr;
         vector = store ? new std::vector<int>(size) : nullptr;
-        answer = (int *) malloc(sizeof(int) * size);
-        std::mt19937 generator(std::chrono::system_clock::now().time_since_epoch().count());
-        left = type ? ((int) generator() % size + size) % size : -1;
-        right = type ? ((int) generator() % size + size) % size : -1;
-        index = ((int) generator() % size + size) % size;
+        answer = new int[size];
+        left = type ? (generator() % size + size) % size : -1;
+        right = type ? (generator() % size + size) % size : -1;
+        index = (generator() % size + size) % size;
         if (left > right) std::swap(left, right);
     }
 
     virtual ~AbstractGenerator() {
-        free(answer);
-        if (array != nullptr) free(array);
+        delete[] answer;
+        delete[] array;
         if (vector != nullptr) {
             vector->clear();
             delete vector;
         }
     }
 
-    inline int getSize() const {
+    [[nodiscard]] int getSize() const {
         return size;
     }
 
-    inline int getLeft() const {
+    [[nodiscard]] int getLeft() const {
         return left;
     }
 
-    inline int getRight() const {
+    [[nodiscard]] int getRight() const {
         return right;
     }
 
-    inline int getIndex() const {
+    [[nodiscard]] int getIndex() const {
         return index + 1;
     }
 
-    inline bool checkAnswer() {
+    bool checkAnswer() {
         getAnswer();
-        for (int i = 0; i < size; i++) {
-            if (array != nullptr && answer[i] != array[i]) return false;
-            if (vector != nullptr && answer[i] != (*vector)[i]) return false;
+        for (int i = 0; array != nullptr && i < size; i++) {
+            if (answer[i] != array[i]) return false;
+        }
+        for (int i = 0; vector != nullptr && i < size; i++) {
+            if (answer[i] != vector->at(i)) return false;
         }
         return true;
     }
 
-    inline bool checkAnswer(int value) {
+    bool checkAnswer(int value) {
         getAnswer();
         return value == answer[index];
     }
 
-    inline void display() {
+    void display() {
         printf("left : %d, right : %d\n", left, right);
         printf("out : ");
         if (array != nullptr) for (int i = 0; i < size; i++) printf("%d ", array[i]);
@@ -93,11 +99,6 @@ public:
         printf("std : ");
         for (int i = 0; i < size; i++) printf("%d ", answer[i]);
         putchar('\n');
-    }
-
-    static inline int generator() {
-        static std::mt19937 generator(std::chrono::system_clock::now().time_since_epoch().count());
-        return generator();
     }
 
     virtual const char *name() = 0;

@@ -15,9 +15,9 @@ add_executable(
         test/LargeRandomGenerator.h
         test/MiddleRandomGenerator.h
         test/SmallRandomGenerator.h
-        test/IncreaseIntGenerator.h
-        test/DecreaseIntGenerator.h
-        test/SameIntGenerator.h
+        test/IncreaseItemGenerator.h
+        test/DecreaseItemGenerator.h
+        test/SameItemGenerator.h
 
         sort/BubbleSort.h
         sort/SelectSort.h

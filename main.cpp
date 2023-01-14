@@ -111,9 +111,9 @@ int main(int argc, char const *argv[]) {
         new LargeRandomGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
         new MiddleRandomGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
         new SmallRandomGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
-        new IncreaseIntGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
-        new DecreaseIntGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
-        new SameIntGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
+        new IncreaseItemGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
+        new DecreaseItemGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
+        new SameItemGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
     }
     else if (argc == 3 && strcmp(argv[1], "-cancel") == 0 && strcmp(argv[2], "-sort") == 0) {
         int array[6] = {1, 1, 4, 5, 1, 4};

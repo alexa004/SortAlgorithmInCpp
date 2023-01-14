@@ -1,20 +1,19 @@
-#ifndef SORTALGORITHM_SAMEINTGENERATOR_H
-#define SORTALGORITHM_SAMEINTGENERATOR_H
+#ifndef SORTALGORITHM_SAMEITEMGENERATOR_H
+#define SORTALGORITHM_SAMEITEMGENERATOR_H
 
 #include "AbstractGenerator.h"
 
-class SameIntGenerator : public AbstractGenerator {
+class SameItemGenerator : public AbstractGenerator {
 private:
     int base;
 
 public:
-    SameIntGenerator(int size, bool type, bool store) : AbstractGenerator(size, type, store) {
-        int value = (int) generator() / 2;
-        this->base = value;
+    SameItemGenerator(int size, bool type, bool store) : AbstractGenerator(size, type, store) {
+        this->base = (int) generator() / 2;
     }
 
     const char *name() override {
-        return "same int generator";
+        return "same item generator";
     }
 
     int *generateArray() override {
@@ -27,9 +26,9 @@ public:
     std::vector<int>::iterator generateVector() override {
         if (vector != nullptr)
             for (int i = 0; i < size; i++)
-                answer[i] = (*vector)[i] = base;
+                answer[i] = vector->at(i) = base;
         return vector->begin();
     }
 };
 
-#endif //SORTALGORITHM_SAMEINTGENERATOR_H
+#endif //SORTALGORITHM_SAMEITEMGENERATOR_H

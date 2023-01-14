@@ -15,7 +15,7 @@ public:
         if (array != nullptr)
             for (int i = 0; i < size; i++) {
                 int value = generator();
-                answer[i] = array[i] = value / 0xffffff;
+                answer[i] = array[i] = value >> 24;
             }
         return array;
     }
@@ -24,7 +24,7 @@ public:
         if (vector != nullptr)
             for (int i = 0; i < size; i++) {
                 int value = generator();
-                answer[i] = (*vector)[i] = value / 0xffffff;
+                answer[i] = vector->at(i) = value >> 24;
             }
         return vector->begin();
     }
