@@ -7,7 +7,7 @@
 #define rightSon(index) (index << 1 | 1)
 
 template<typename T>
-void siftDown(T *array, int size, int index) {
+void siftDown(T array, int size, int index) {
     while (true) {
         int next = index;
         if (leftSon(index) <= size && array[next - 1] < array[leftSon(index) - 1])

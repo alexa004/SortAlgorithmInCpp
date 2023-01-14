@@ -4,18 +4,18 @@
 #include <algorithm>
 
 template<typename T>
-void quickSort(T *array, int n);
+void quickSort(T array, int n);
 
 template<typename T>
-void quickSort(T *array, int left, int right);
+void quickSort(T array, int left, int right);
 
 template<typename T>
-void quickSort(T *array, int n) {
+void quickSort(T array, int n) {
     quickSort(array, 0, n - 1);
 }
 
 template<typename T>
-void quickSort(T *array, int left, int right) {
+void quickSort(T array, int left, int right) {
     if (left > right) return;
     int mid = (left + right) / 2;
     if (array[left] > array[right])

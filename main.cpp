@@ -10,8 +10,7 @@
 #include "./other/FindMajority.h"
 #include "./other/CountReverse.h"
 
-inline void localTest(const std::vector<int>& square
-        , const std::vector<int>& linear, const std::vector<int>& lineLog) {
+inline void localTest(const std::vector<int> &square, const std::vector<int> &linear, const std::vector<int> &lineLog) {
     bool flag = true;
     bubbleSortTest(std::string("bubble sort"), square, flag);
     puts("-----------------------------------------------------------------------------------------\n");
@@ -32,8 +31,7 @@ inline void localTest(const std::vector<int>& square
     puts(flag ? "accepted" : "wrong answer");
 }
 
-inline void kthTest(const std::vector<int>& square
-        , const std::vector<int>& linear, const std::vector<int>& lineLog) {
+inline void kthTest(const std::vector<int> &square, const std::vector<int> &linear, const std::vector<int> &lineLog) {
     bool flag = true;
     findKthTest(std::string("find kth"), linear, flag);
     puts("-----------------------------------------------------------------------------------------\n");
@@ -51,21 +49,21 @@ inline void eulerTest() {
 
 inline void reverseTestA() {
     int total = read();
-    int* array = (int*)malloc(sizeof(int) * total);
+    int *array = (int *) malloc(sizeof(int) * total);
     for (int i = 0; i < total; i++) array[i] = read();
     writeLongLong(countReverse(array, total));
 }
 
 inline void reverseTestB() {
     std::vector<int> array(read());
-    for (int& i : array) i = read();
+    for (int &i: array) i = read();
     writeLongLong(countReverse(array.begin(), array.size()));
 }
 
 inline void majorityTestA() {
     int total = read();
-    int* array = (int*)malloc(sizeof(int) * total);
-    int* answer = (int*)malloc(sizeof(int) * total);
+    int *array = (int *) malloc(sizeof(int) * total);
+    int *answer = (int *) malloc(sizeof(int) * total);
     for (int i = 0; i < total; i++) array[i] = answer[i] = read();
     std::sort(answer, answer + total);
     puts(answer[total / 2] == findMajority(array, total) ? "true" : "false");
@@ -114,8 +112,7 @@ int main(int argc, char const *argv[]) {
         new IncreaseItemGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
         new DecreaseItemGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
         new SameItemGenerator(AbstractGenerator::ONE, AbstractGenerator::ALL, AbstractGenerator::ARRAY);
-    }
-    else if (argc == 3 && strcmp(argv[1], "-cancel") == 0 && strcmp(argv[2], "-sort") == 0) {
+    } else if (argc == 3 && strcmp(argv[1], "-cancel") == 0 && strcmp(argv[2], "-sort") == 0) {
         int array[6] = {1, 1, 4, 5, 1, 4};
         bubbleSort(array, 0), bubbleSort(array, 0, 0);
         selectSort(array, 0), selectSort(array, 0, 0);

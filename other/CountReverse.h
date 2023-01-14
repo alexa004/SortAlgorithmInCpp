@@ -1,8 +1,8 @@
 #ifndef SORTALGORITHM_COUNTREVERSE_H
 #define SORTALGORITHM_COUNTREVERSE_H
 
-template<typename T>
-static void count(T *array, T *buffer, int left, int mid, int right, long long &reverse) {
+template<typename T, typename V>
+static void count(T array, V *buffer, int left, int mid, int right, long long &reverse) {
     for (int i = left; i <= right; i++) buffer[i] = array[i];
     int i = left, j = mid + 1, k = left;
     while (i <= mid && j <= right) {
@@ -15,8 +15,8 @@ static void count(T *array, T *buffer, int left, int mid, int right, long long &
         array[k++] = buffer[j++];
 }
 
-template<typename T>
-static void countReverse(T *array, T *buffer, int left, int right, long long &reverse) /* NOLINT */ {
+template<typename T, typename V>
+static void countReverse(T array, V *buffer, int left, int right, long long &reverse) /* NOLINT */ {
     if (left < right) {
         int mid = (left + right) / 2;
         countReverse(array, buffer, left, mid, reverse);
@@ -26,10 +26,12 @@ static void countReverse(T *array, T *buffer, int left, int right, long long &re
 }
 
 template<typename T>
-long long countReverse(T *array, int n) {
-    T *buffer = new T[n];
+long long countReverse(T array, int n) {
+    typedef typename std::iterator_traits<T>::value_type V;
+    V *buffer = new V[n];
     long long reverse = 0;
     countReverse(array, buffer, 0, n - 1, reverse);
+    delete[] buffer;
     return reverse;
 }
 

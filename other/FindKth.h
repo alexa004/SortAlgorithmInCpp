@@ -4,7 +4,7 @@
 #include <algorithm>
 
 template<typename T>
-static int solve(T *array, int left, int right, int k) {
+static int solve(T array, int left, int right, int k) {
     if (left > right) return -1;
     int mid = (left + right) / 2;
     if (array[left] > array[right])
@@ -28,7 +28,7 @@ static int solve(T *array, int left, int right, int k) {
 }
 
 template<typename T>
-T findKth(T *array, int n, int k) {
+typename std::iterator_traits<T>::value_type findKth(T array, int n, int k) {
     return array[solve(array, 0, n - 1, k - 1)];
 }
 

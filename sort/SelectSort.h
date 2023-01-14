@@ -4,13 +4,13 @@
 #include <algorithm>
 
 template<typename T>
-void selectSort(T *array, int n);
+void selectSort(T array, int n);
 
 template<typename T>
-void selectSort(T *array, int left, int right);
+void selectSort(T array, int left, int right);
 
 template<typename T>
-void selectSort(T *array, int n) {
+void selectSort(T array, int n) {
     for (int i = n; i > 0; i--) {
         int cur = array[0], pos = 0;
         for (int j = 1; j < i; j++)
@@ -21,7 +21,7 @@ void selectSort(T *array, int n) {
 }
 
 template<typename T>
-void selectSort(T *array, int left, int right) {
+void selectSort(T array, int left, int right) {
     selectSort(array + left, right - left + 1);
 }
 

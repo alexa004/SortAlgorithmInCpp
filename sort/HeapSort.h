@@ -4,13 +4,13 @@
 #include "../utils/heap.h"
 
 template<typename T>
-void heapSort(T *array, int n);
+void heapSort(T array, int n);
 
 template<typename T>
-void heapSort(T *array, int left, int right);
+void heapSort(T array, int left, int right);
 
 template<typename T>
-void heapSort(T *array, int n) {
+void heapSort(T array, int n) {
     for (int i = n / 2; i > 0; i--)
         siftDown(array, n, i);
     while (n >= 1)
@@ -18,7 +18,7 @@ void heapSort(T *array, int n) {
 }
 
 template<typename T>
-void heapSort(T *array, int left, int right) {
+void heapSort(T array, int left, int right) {
     heapSort(array + left, right - left + 1);
 }
 

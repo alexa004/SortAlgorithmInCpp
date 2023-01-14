@@ -23,54 +23,54 @@
 
 void finalizeSort(AbstractGenerator *generator, const std::string &name, int size, bool &flag) {
     bool result = generator->checkAnswer();
-    flag &= result;
     printf("%s, size %d : %s\n", name.c_str(), size, result ? "true" : "false");
     if (size < 10 && !result) generator->display();
+    flag &= result;
     delete generator;
 }
 
 void finalizeKth(int value, AbstractGenerator *generator, const std::string &name, int size, bool &flag) {
     bool result = generator->checkAnswer(value);
-    flag &= result;
     printf("%s, size %d : %s\n", name.c_str(), size, result ? "true" : "false");
     if (size < 10 && !result) generator->display();
+    flag &= result;
     delete generator;
 }
 
 #define testSort(function, generatorType, sortMethod, size, flag) do\
-    for (int i : size) {\
+    for (int i : (size)) {\
         AbstractGenerator* generator;\
         generator = new generatorType(i, AbstractGenerator::ALL, AbstractGenerator::ARRAY);\
         function(generator -> generateArray(), generator -> getSize());\
-        finalizeSort(generator, sortMethod + " / array / all / " + generator -> name(), i, flag);\
+        finalizeSort(generator, (sortMethod) + " / array / all / " + generator -> name(), i, flag);\
         generator = new generatorType(i, AbstractGenerator::ALL, AbstractGenerator::VECTOR);\
         function(generator -> generateVector(), generator -> getSize());\
-        finalizeSort(generator, sortMethod + " / vector / all / " + generator -> name(), i, flag);\
+        finalizeSort(generator, (sortMethod) + " / vector / all / " + generator -> name(), i, flag);\
         generator = new generatorType(i, AbstractGenerator::RANGE, AbstractGenerator::ARRAY);\
         function(generator -> generateArray(), generator -> getLeft(), generator -> getRight());\
-        finalizeSort(generator, sortMethod + " / array / range / " + generator -> name(), i, flag);\
+        finalizeSort(generator, (sortMethod) + " / array / range / " + generator -> name(), i, flag);\
         generator = new generatorType(i, AbstractGenerator::RANGE, AbstractGenerator::VECTOR);\
         function(generator -> generateVector(), generator -> getLeft(), generator -> getRight());\
-        finalizeSort(generator, sortMethod + " / vector / range / " + generator -> name(), i, flag);\
+        finalizeSort(generator, (sortMethod) + " / vector / range / " + generator -> name(), i, flag);\
         putchar('\n');\
     }\
 while (0)
 
 #define testKth(function, generatorType, kthMethod, size, flag) do\
-    for (int i : size) {\
+    for (int i : (size)) {\
         AbstractGenerator* generator;\
         generator = new generatorType(i, AbstractGenerator::ALL, AbstractGenerator::ARRAY);\
         finalizeKth(function(generator -> generateArray(), generator -> getSize(), generator -> getIndex()),\
-        generator, kthMethod + " / array / all / " + generator -> name(), i, flag);\
+        generator, (kthMethod) + " / array / all / " + generator -> name(), i, flag);\
         generator = new generatorType(i, AbstractGenerator::ALL, AbstractGenerator::VECTOR);\
         finalizeKth(function(generator -> generateVector(), generator -> getSize(), generator -> getIndex()),\
-        generator, kthMethod + " / vector / all / " + generator -> name(), i, flag);\
+        generator, (kthMethod) + " / vector / all / " + generator -> name(), i, flag);\
         generator = new generatorType(i, AbstractGenerator::ALL, AbstractGenerator::ARRAY);\
         finalizeKth(function(generator -> generateArray(), generator -> getSize(), generator -> getIndex()),\
-        generator, kthMethod + " / array / all / " + generator -> name(), i, flag);\
+        generator, (kthMethod) + " / array / all / " + generator -> name(), i, flag);\
         generator = new generatorType(i, AbstractGenerator::ALL, AbstractGenerator::VECTOR);\
         finalizeKth(function(generator -> generateVector(), generator -> getSize(), generator -> getIndex()),\
-        generator, kthMethod + " / vector / all / " + generator -> name(), i, flag);\
+        generator, (kthMethod) + " / vector / all / " + generator -> name(), i, flag);\
         putchar('\n');\
     }\
 while (0)
