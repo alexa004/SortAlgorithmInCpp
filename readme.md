@@ -3,7 +3,7 @@
 ![license](https://img.shields.io/github/license/Chenrt-ggx/SortAlgorithmInCpp)
 ![test](https://github.com/Chenrt-ggx/SortAlgorithmInCpp/actions/workflows/catch.test.yml/badge.svg)
 
-## Algorithms
+## Sort Algorithms
 
 - Radix Sort: $O(n)$.
 - Merge Sort: $O(nlogn)$.
@@ -29,10 +29,3 @@
 - Random in int range, with small amount of duplicate.
 - Random in short range, with middle amount of duplicate.
 - Random in byte range, with large amount of duplicate.
-
-### Test Method
-
-- Use array and sort all.
-- Use array and sort range.
-- Use vector and sort all.
-- Use vector and sort range.
