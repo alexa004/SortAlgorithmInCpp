@@ -1,5 +1,6 @@
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 #include <algorithm>
 
 #include <catch2/catch_all.hpp>
@@ -7,9 +8,10 @@
 #include "utils/fio.h"
 #include "utils/sort.h"
 #include "utils/rank.h"
+#include "utils/other.h"
 #include "other/EulerFilter.h"
 #include "other/FindMajority.h"
-#include "other/CountReverse.h"
+#include "other/ReverseMerge.h"
 
 void eulerTest() {
     std::vector<int> filter(read());
@@ -22,13 +24,13 @@ void reverseTestA() {
     int total = read();
     int *array = (int *) malloc(sizeof(int) * total);
     for (int i = 0; i < total; i++) array[i] = read();
-    write(countReverse(array, total));
+    write(reverseMerge(array, total));
 }
 
 void reverseTestB() {
     std::vector<int> array(read());
     for (int &i: array) i = read();
-    write(countReverse(array.begin(), (int) array.size()));
+    write(reverseMerge(array.begin(), (int) array.size()));
 }
 
 void majorityTestA() {
@@ -51,8 +53,7 @@ void majorityTestB() {
 }
 
 int main(int argc, char **argv) {
-    Catch::Session().run(argc, argv);
-    // sortTest(square, linear, lineLog);
-    // kthTest(square, linear, lineLog);
-    return 0;
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    return Catch::Session().run(argc, argv);
 }

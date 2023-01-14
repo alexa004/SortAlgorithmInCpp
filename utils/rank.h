@@ -43,7 +43,7 @@ static void testAndVerify(std::vector<RankTesterItem> &testList, std::vector<int
             for (AbstractGenerator *generator: generators) {
                 bool result = generator->checkAnswer(test.second(generator));
                 if (size < 0xf && !result) generator->display();
-                REQUIRE(result);
+                CHECK(result);
                 delete generator;
             }
         }

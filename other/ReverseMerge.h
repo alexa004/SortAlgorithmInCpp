@@ -1,5 +1,5 @@
-#ifndef SORTALGORITHM_COUNTREVERSE_H
-#define SORTALGORITHM_COUNTREVERSE_H
+#ifndef SORTALGORITHM_REVERSEMERGE_H
+#define SORTALGORITHM_REVERSEMERGE_H
 
 template<typename T, typename V>
 static void count(T array, V *buffer, int left, int mid, int right, long long &reverse) {
@@ -16,23 +16,23 @@ static void count(T array, V *buffer, int left, int mid, int right, long long &r
 }
 
 template<typename T, typename V>
-static void countReverse(T array, V *buffer, int left, int right, long long &reverse) /* NOLINT */ {
+static void reverseMerge(T array, V *buffer, int left, int right, long long &reverse) /* NOLINT */ {
     if (left < right) {
         int mid = (left + right) / 2;
-        countReverse(array, buffer, left, mid, reverse);
-        countReverse(array, buffer, mid + 1, right, reverse);
+        reverseMerge(array, buffer, left, mid, reverse);
+        reverseMerge(array, buffer, mid + 1, right, reverse);
         count(array, buffer, left, mid, right, reverse);
     }
 }
 
 template<typename T>
-long long countReverse(T array, int n) {
+long long reverseMerge(T array, int n) {
     typedef typename std::iterator_traits<T>::value_type V;
     V *buffer = new V[n];
     long long reverse = 0;
-    countReverse(array, buffer, 0, n - 1, reverse);
+    reverseMerge(array, buffer, 0, n - 1, reverse);
     delete[] buffer;
     return reverse;
 }
 
-#endif //SORTALGORITHM_COUNTREVERSE_H
+#endif //SORTALGORITHM_REVERSEMERGE_H

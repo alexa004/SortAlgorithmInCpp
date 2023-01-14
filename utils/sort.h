@@ -56,7 +56,7 @@ static void testAndVerify(std::vector<SortTesterItem> &testList, std::vector<int
                 test.second(generator);
                 bool result = generator->checkAnswer();
                 if (size < 0xf && !result) generator->display();
-                REQUIRE(result);
+                CHECK(result);
                 delete generator;
             }
         }
