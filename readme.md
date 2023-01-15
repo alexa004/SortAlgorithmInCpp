@@ -18,7 +18,7 @@
 
 ### Data Size
 
-- Some small $n$ for boundary situation: $1,2,4...$.
+- Some small $n$ for boundary situation: $1$, $2$ and $4$.
 - For $O(n^2)$ algorithms, use $5e3$ for functional test.
 - For $O(nlogn)$ algorithms, use $5e5$ for functional test.
 - For $O(n)$ algorithms, use $1e6$ for functional test.
