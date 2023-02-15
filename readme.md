@@ -1,5 +1,6 @@
 # Sort Algorithm In Cpp
 
+![category](https://img.shields.io/badge/algorithm-C++-blueviolet)
 ![license](https://img.shields.io/github/license/Chenrt-ggx/SortAlgorithmInCpp)
 ![test](https://github.com/Chenrt-ggx/SortAlgorithmInCpp/actions/workflows/catch.test.yml/badge.svg)
 
